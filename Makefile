@@ -19,8 +19,8 @@ OBJDIR	:= build
 CC			:= g++
 LD			:= g++
 CCMACRO ?= 
-LDFLAGS	:= -Llib -fopenmp
-CCFLAGS	:= -O3 -Wall -Wextra -pedantic -Wno-sign-compare $(CCMACRO)
+LDFLAGS	:= -Llib
+CCFLAGS	:= -O3 -Wall -Wextra -pedantic -Wno-sign-compare -std=c++20 $(CCMACRO)
  
 # Code files
 INCS     = $(shell find $(INCDIR) -type f -name '*$(INCEXT)')
