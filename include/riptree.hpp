@@ -19,8 +19,6 @@
 #include "prefix.hpp"
 #include "util.hpp"
 
-using namespace std;
-
 /**
  * @brief Find the next number in the path of n in RIPTree.
  *

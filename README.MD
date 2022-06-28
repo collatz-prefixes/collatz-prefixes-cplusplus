@@ -1,4 +1,4 @@
-## C++ Implementation of Collatz Prefixes
+# C++ Implementation of Collatz Prefixes
 
 C++ code is for further performance improvements and robust experiments.
 

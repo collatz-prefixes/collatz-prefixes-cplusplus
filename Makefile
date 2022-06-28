@@ -19,7 +19,8 @@ OBJDIR	:= build
 CC			:= g++
 LD			:= g++
 CCMACRO ?= 
-LDFLAGS	:= -Llib
+LDOPTS	:= -L$(OBJDIR)
+INCOPTS := -I$(INCDIR) -I$(TPLDIR)
 CCFLAGS	:= -O3 -Wall -Wextra -pedantic -Wno-sign-compare -std=c++20 $(CCMACRO)
  
 # Code files
@@ -34,11 +35,11 @@ all: $(TARGET) | $(TGTDIR)
 
 # Linking
 $(TARGET): $(OBJS) 
-	$(LD) $(LDFLAGS) -L$(OBJDIR) -o $@ $^
+	$(LD) $(LDFLAGS) -o $@ $^
 
 # Compiling
 $(OBJS): $(OBJDIR)/%$(OBJEXT) : $(SRCDIR)/%$(SRCEXT) | $(OBJDIR)
-	$(CC) $(CCFLAGS) -I$(INCDIR) -I$(TPLDIR) -c -o $@ $?
+	$(CC) $(CCFLAGS) $(INCOPTS) -c -o $@ $?
 
 # Objects directory
 $(OBJDIR):

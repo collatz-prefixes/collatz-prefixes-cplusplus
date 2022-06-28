@@ -20,8 +20,6 @@
 
 #include "collatz.hpp"
 
-using namespace std;
-
 /**
  * @brief Iterate a number through it's prefix
  *

@@ -19,8 +19,6 @@
 #include "prefix.hpp"
 #include "riptree.hpp"
 
-using namespace std;
-
 /**
  * @brief Find the nature of a PIPTree node indexed by a RIPTree path p.
  *
