@@ -53,14 +53,6 @@ vector<uintmax_t> collatz_reduced_sequence(uintmax_t n);
 vector<uint> collatz_ECF(uintmax_t n);
 
 /**
- * @brief Return the reduced exponential canonical form of a number.
- *
- * @param n uint64_t
- * @return vector<int>
- */
-vector<uint> collatz_RECF(uintmax_t n);
-
-/**
  * @brief Return the inverse canonical form of a number.
  *
  * @param n uint64_t
@@ -69,28 +61,12 @@ vector<uint> collatz_RECF(uintmax_t n);
 vector<pair<uint, uint> > collatz_ICF(uintmax_t n);
 
 /**
- * @brief Return the RECF of ECF.
- *
- * @param ecf vector<int>
- * @return uint64_t
- */
-vector<uint> collatz_ECF_to_RECF(const vector<uint> &ecf);
-
-/**
  * @brief Return a number from it's exponential canonical form.
  *
  * @param ecf vector<int>
  * @return uint64_t
  */
 uintmax_t collatz_ECF_to_n(const vector<uint> &ecf);
-
-/**
- * @brief Return a number from it's reduced exponential canonical form.
- *
- * @param recf vector<int>
- * @return uint64_t
- */
-uintmax_t collatz_RECF_to_n(const vector<uint> &recf);
 
 /**
  * @brief Return a number from it's inverse canonical form.

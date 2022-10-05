@@ -29,18 +29,14 @@ void test_collatz(uintmax_t n, bool verbose) {
   assert(collatz_sequence(n).size() == 1 + collatz_length(n));
 
   vector<uint> ecf = collatz_ECF(n);
-  vector<uint> recf = collatz_RECF(n);
 
   if (verbose) {
     print_vector<uint>(ecf, "ECF: ");
-    print_vector<uint>(recf, "RECF: ");
     // print_vector_pair<uint, uint>(icf, "ICF: ");
   }
 
   assert(1 == prefix_iterate(n, ecf));
-  assert(recf == collatz_ECF_to_RECF(ecf));
   assert(n == collatz_ECF_to_n(ecf));
-  assert(n == collatz_RECF_to_n(recf));
   // assert(n == collatz_ICF_to_n(icf));
 
   cout << "Collatz tests done." << endl;

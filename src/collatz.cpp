@@ -68,23 +68,6 @@ vector<uint> collatz_ECF(uintmax_t n) {
   return ans;
 }
 
-vector<uint> collatz_RECF(uintmax_t n) {
-  vector<uint> ans;
-  uint twos = 0;
-  while (n > 1) {
-    if ((n & 1) == 0) {
-      twos++;
-      n = n >> 1;
-    } else {
-      ans.push_back(twos);
-      twos = 0;
-      n = 3 * n + 1;
-    }
-  }
-  ans.push_back(twos);
-  return ans;
-}
-
 vector<pair<uint, uint> > collatz_ICF(uintmax_t n) {
   vector<pair<uint, uint> > ans;
   vector<uint> ecf = collatz_ECF(n);
@@ -98,25 +81,13 @@ vector<pair<uint, uint> > collatz_ICF(uintmax_t n) {
   return ans;
 }
 
-vector<uint> collatz_ECF_to_RECF(const vector<uint> &ecf) {
-  vector<uint> recf(ecf);  // copy ecf to recf
-  recf[0] = ecf[0];
-  for (uint i = 1; i < ecf.size(); ++i) {
-    recf[i] = ecf[i] - ecf[i - 1];
-  }
-  return recf;
-}
-
-uintmax_t collatz_ECF_to_n(const vector<uint> &ecf) { return collatz_RECF_to_n(collatz_ECF_to_RECF(ecf)); }
-
-uintmax_t collatz_RECF_to_n(const vector<uint> &recf) {
-  auto r = recf.rbegin();
-  double ans = pow(2, *r);
-  ++r;
-  for (; r != recf.rend(); ++r) {
+uintmax_t collatz_ECF_to_n(const vector<uint> &ecf) {
+  uintmax_t ans = 1;
+  for (uint i = ecf.size() - 1; i > 0; --i) {
+    ans <<= ecf[i] - ecf[i - 1];
     ans = (ans - 1) / 3;
-    ans *= pow(2, *r);
   }
+  ans <<= ecf[0];
   return ans;
 }
 
