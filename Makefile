@@ -21,7 +21,7 @@ LD			:= g++
 CCMACRO ?= 
 LDOPTS	:= -L$(OBJDIR)
 INCOPTS := -I$(INCDIR) -I$(TPLDIR)
-CCFLAGS	:= -O3 -Wall -Wextra -pedantic -Wno-sign-compare -std=c++20 $(CCMACRO)
+CCFLAGS	:= -O3 -Wall -Wextra -pedantic -Wno-sign-compare -std=c++17 $(CCMACRO)
  
 # Code files
 INCS     = $(shell find $(INCDIR) -type f -name '*$(INCEXT)')
